@@ -9,8 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,8 @@ import static com.example.product_common_core.constant.ApiConstant.STATUS_ERROR;
 import static com.example.product_common_core.exception.CommonErrorMessage.FIELD_VALIDATION_ERROR;
 
 
-@RestControllerAdvice
-public class GlobalExceptionHandler {
+@ControllerAdvice
+public class CommonExceptionHandler {
 
     private static Error getError(CommonErrorMessage err) {
         return Error.builder().errorCode(err.getErrorCode()).errorMessage(err.getErrorMessage()).build();
